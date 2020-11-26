@@ -1,17 +1,15 @@
-; Maakt een object aan voor snakes
-
-
+; Maakt een object aan voor snakes.
 snakes-own
 [
   miceEaten-#
   target
 ]
 
-; verschillende soorten turtle aanmaken
+; Verschillende soorten turtle aanmaken.
 breed[snakes snake]
 breed[mice mouse]
 
-; De opzet maken voor de simulatie o.a. hoeveel muizen & hoeveel snakes
+; De opzet maken voor de simulatie o.a. hoeveel muizen & hoeveel snakes.
 to setup
   clear-all
   reset-ticks
@@ -36,15 +34,14 @@ to setup
   ]
 end
 
-; Het verplaatsen van alle dieren en checken of een snake een muis tegen komt
+; Het verplaatsen van alle dieren en checken of een snake een muis tegen komt.
 to go
-  ;snakes[snake eat counter]
   ask mice [forward 1.5]
   ask snakes [forward 1]
   ask snakes [update]
 end
 
-; Wanneer een muis gepakt wordt de muis verwijdert en geeft deze functie terug hoeveel muizen er tot nu toe gegeten zijn
+; Wanneer een muis gepakt wordt de muis verwijdert en geeft deze functie terug hoeveel muizen er tot nu toe gegeten zijn. Vervolgens kijkt de slang of er een muis in de buurt is en stelt zijn richting in op die muis.
 to update
   (if any? mice-on patch-ahead 0
     [
